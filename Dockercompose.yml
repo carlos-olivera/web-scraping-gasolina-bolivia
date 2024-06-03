@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  gasolina-script:
+    build: .
+    container_name: gasolina-script
+    volumes:
+      - .:/usr/src/app
+    depends_on:
+      - database
+
+  database:
+    container_name: database-python
+    env_file:
+      - ./database/.env
+    build:
+      context: ./database
+      dockerfile: Dockerfile
+    volumes:
+      - ./database/data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}
+    ports:
+      - "27017:27017"
