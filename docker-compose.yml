@@ -8,6 +8,8 @@ services:
       - .:/usr/src/app
     depends_on:
       - database
+    env_file:
+      - ./.env
 
   database:
     container_name: database-python

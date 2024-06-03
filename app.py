@@ -9,8 +9,20 @@ import time
 class GetGasStations:
     def __init__(self):
         self.url = "https://biopetrol.com.bo/guiamobile/main/donde/134"
-        self.mongo_client = MongoClient(f"mongodb://{os.getenv('MONGO_INITDB_ROOT_USERNAME')}:{os.getenv('MONGO_INITDB_ROOT_PASSWORD')}@database:27017/")
-        self.db = self.mongo_client[os.getenv('MONGO_INITDB_DATABASE')]
+        
+        # Obtener variables de entorno
+        mongo_username = os.getenv('MONGO_INITDB_ROOT_USERNAME')
+        mongo_password = os.getenv('MONGO_INITDB_ROOT_PASSWORD')
+        mongo_database = os.getenv('MONGO_INITDB_DATABASE')
+
+        # Verificar que las variables de entorno estén definidas
+        if not mongo_username or not mongo_password or not mongo_database:
+            raise ValueError("Las variables de entorno MONGO_INITDB_ROOT_USERNAME, MONGO_INITDB_ROOT_PASSWORD y MONGO_INITDB_DATABASE deben estar definidas.")
+        
+        print(f"Conectando a MongoDB con usuario: {mongo_username}, base de datos: {mongo_database}")
+        
+        self.mongo_client = MongoClient(f"mongodb://{mongo_username}:{mongo_password}@database:27017/")
+        self.db = self.mongo_client[mongo_database]
         self.collection = self.db['surtidores']
 
     def updateGasStations(self):
@@ -57,7 +69,7 @@ class GetGasStations:
                 
                 # Obtener y convertir el valor de litros disponibles
                 liters_available_str = card.find_all('div', class_='col-12 mx-0 px-4 text-right text-bio-appx text-dark')[0].text.strip()
-                liters_available = float(liters_available_str.replace('.', '').replace(',', '.').replace(' Lts.', ''))
+                liters_available = float(liters_available_str.replace(' Lts.', '').replace(',', ''))
                 
                 # Obtener y convertir la fecha y hora de medición
                 datetime_str = card.find_all('div', class_='col-12 mx-0 px-4 text-right text-bio-appx text-dark')[1].text.strip()
@@ -71,9 +83,7 @@ class GetGasStations:
                     'description': description,
                     'value': liters_available,
                     'readdatetime': datetime_measurement.isoformat(),
-                    'locationText': location_text,
-                    'type':'gasolina',
-                    'source':'Biopetrol'
+                    'locationText': location_text
                 }
 
                 gas_stations.append(gas_station_data)
@@ -94,5 +104,9 @@ class GetGasStations:
             time.sleep(900)  # Esperar 900 segundos (15 minutos)
 
 if __name__ == "__main__":
-    gas_stations_updater = GetGasStations()
-    gas_stations_updater.start()
+    print("Iniciando....")
+    try:
+        gas_stations_updater = GetGasStations()
+        gas_stations_updater.start()
+    except Exception as e:
+        print(f"Error al iniciar la aplicación: {e}")
