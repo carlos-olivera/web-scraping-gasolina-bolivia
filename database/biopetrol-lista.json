@@ -1,0 +1,101 @@
+[
+    {
+      "name": "BEREA",
+      "location": { "type": "Point", "coordinates": [-17.8376558, -63.2382944] },
+      "gasoline": "GE+",
+      "diesel": "DO",
+      "gas": "GNV"
+    },
+    {
+      "name": "ROYAL",
+      "location": { "type": "Point", "coordinates": [-17.8058635, -63.1978547] },
+      "gasoline": "GE+",
+      "diesel": "SE 92",
+      "gas": "GNV"
+    },
+    {
+      "name": "SANTOS DUMOND",
+      "location": { "type": "Point", "coordinates": [-17.7998507, -63.1804526] },
+      "gasoline": "GE+",
+      "diesel": "SE 92",
+      "gas": "GNV"
+    },
+    {
+      "name": "PIRAI",
+      "location": { "type": "Point", "coordinates": [-17.7859127, -63.2044127] },
+      "gasoline": "GE+",
+      "diesel": "SE 92",
+      "gas": "GNV"
+    },
+    {
+      "name": "CHACO",
+      "location": { "type": "Point", "coordinates": [-17.782429, -63.1635305] },
+      "gasoline": "GE+",
+      "diesel": "DO",
+      "gas": "GNV"
+    },
+    {
+      "name": "BENI",
+      "location": { "type": "Point", "coordinates": [-17.7694328, -63.1787729] },
+      "gasoline": "GE+",
+      "diesel": "SE 92",
+      "gas": "GNV"
+    },
+    {
+      "name": "ALEMANA",
+      "location": { "type": "Point", "coordinates": [-17.7689941, -63.1710233] },
+      "gasoline": "GE+",
+      "diesel": "SE 92",
+      "gas": "GNV"
+    },
+    {
+      "name": "GASCO",
+      "location": { "type": "Point", "coordinates": [-17.759349, -63.1795514] },
+      "gasoline": "GE+",
+      "diesel": "SE 92",
+      "gas": "GNV"
+    },
+    {
+      "name": "EQUIPETROL",
+      "location": { "type": "Point", "coordinates": [-17.7543934, -63.196924] },
+      "gasoline": "GE+",
+      "diesel": "SE 92",
+      "gas": "DO, GNV"
+    },
+    {
+      "name": "PARAGUA",
+      "location": { "type": "Point", "coordinates": [-17.7650579, -63.149406] },
+      "gasoline": "GE+",
+      "diesel": "DO",
+      "gas": "GNV"
+    },
+    {
+      "name": "LOPEZ",
+      "location": { "type": "Point", "coordinates": [-17.7257633, -63.1653759] },
+      "gasoline": "GE+",
+      "diesel": "SE 92, DO",
+      "gas": "GNV"
+    },
+    {
+      "name": "VIRU VIRU",
+      "location": { "type": "Point", "coordinates": [-17.6758342, -63.1592685] },
+      "gasoline": "GE+",
+      "diesel": "DO",
+      "gas": "GNV"
+    },
+    {
+      "name": "MONTECRISTO",
+      "location": { "type": "Point", "coordinates": [-17.765752, -63.1095389] },
+      "description": "Descripción",
+      "gasoline": "GE+",
+      "diesel": "DO"
+    },
+    {
+      "name": "LA TECA",
+      "location": { "type": "Point", "coordinates": [-17.7635714, -63.0726331] },
+      "gasoline": "GE+",
+      "diesel": "DO",
+      "gas": "GNV"
+    }
+  ]
+  
